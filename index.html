@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Math Server</title>
+    <link rel = "stylesheet" href = "index.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Math Server</h1>
+   
+    <form id="mathForm">
+        <input type="text" id="calculation" placeholder="Enter operation (e.g., 5+3)">
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="result"></div>
+    </div>
+
+    <script>
+        const mathForm = document.getElementById('mathForm');
+        const resultDiv = document.getElementById('result');
+
+        mathForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const operation = document.getElementById('calculation').value;
+            const response = await fetch(`/calculate/${calculation}`);
+            const data = await response.json();
+            resultDiv.innerHTML = `${data.question} = ${data.answer}`;
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Server</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Math Server</h1>
+        <form id="mathForm">
+            <input type="text" id="calculation" placeholder="Enter operation (e.g., 5+3)">
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const mathForm = document.getElementById('mathForm');
+        const resultDiv = document.getElementById('result');
+
+        mathForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const operation = document.getElementById('calculation').value;
+            const response = await fetch(`/calculate/${operation}`);
+            const data = await response.json();
+            resultDiv.innerHTML = `${data.question} = ${data.answer}`;
+        });
+    </script>
+</body>
+</html>
